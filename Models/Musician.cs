@@ -23,5 +23,7 @@ namespace Kolokwium_s16536.Models
 
         [MaxLength(20)]
         public string NickName { get; set; }
+
+        public ICollection<Track> Tracks { get; set; }
     }
 }
