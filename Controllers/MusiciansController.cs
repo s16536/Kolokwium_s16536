@@ -1,4 +1,5 @@
-﻿using Kolokwium_s16536.Services;
+﻿using Kolokwium_s16536.Dtos;
+using Kolokwium_s16536.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Kolokwium_s16536.Controllers
@@ -21,6 +22,17 @@ namespace Kolokwium_s16536.Controllers
             if (musician == null)
             {
                 return NotFound();
+            }
+            return Ok(musician);
+        }
+
+        [HttpPost]
+        public IActionResult AddMusician(AddMusicianRequestDto request)
+        {
+            var musician = _service.AddMusician(request);
+            if (musician == null)
+            {
+                return BadRequest();
             }
             return Ok(musician);
         }
